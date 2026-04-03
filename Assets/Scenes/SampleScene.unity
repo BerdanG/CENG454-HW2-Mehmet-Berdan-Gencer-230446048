@@ -468,7 +468,7 @@ MonoBehaviour:
   pitchSpeed: 45
   yawSpeed: 45
   rollSpeed: 45
-  thrustSpeed: 20
+  thrustSpeed: 45
 --- !u!1 &577853861
 GameObject:
   m_ObjectHideFlags: 0
