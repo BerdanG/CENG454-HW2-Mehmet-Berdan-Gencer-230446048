@@ -12,6 +12,12 @@ public class MissileHoming : MonoBehaviour
     {target = targetTransform;}
 
 
+    private void Start()
+    {
+        Destroy(gameObject, 10f);
+    }
+
+
     private void Update()
     {
         if (target == null) return;
@@ -23,4 +29,15 @@ public class MissileHoming : MonoBehaviour
 
         transform.position += transform.forward * speed * Time.deltaTime;
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+    if (other.CompareTag("Player"))
+    {
+        Debug.Log("PLAYER HIT!");
+
+        Destroy(gameObject);
+    }
+}
 }
