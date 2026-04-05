@@ -277,6 +277,7 @@ Transform:
   - {fileID: 882074168}
   - {fileID: 467259878}
   - {fileID: 1917637171}
+  - {fileID: 1782313974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467259877
@@ -934,6 +935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 953629261}
   - component: {fileID: 953629260}
+  - component: {fileID: 953629262}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -962,13 +964,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953629259}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -43.66605, y: 19.58176, z: 189.38924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953629262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953629259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed9dad9adc591543a750c339587b623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissileLauncher
+  missilePrefab: {fileID: 7931777054348214415, guid: 1bcfd60f1e0d8584e9e73974b8d111b1, type: 3}
+  spawnPoint: {fileID: 1782313974}
+  player: {fileID: 492505932}
 --- !u!1 &1008683587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1288,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1782313973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1782313974}
+  m_Layer: 0
+  m_Name: MissileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1782313974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782313973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 38, y: 8.6, z: 194.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 207510258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885764958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2707377053882206312, guid: 5345d50d92ddc6a4e99246080ad8871d, type: 3}
@@ -1294,6 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DangerZoneController
   examManager: {fileID: 953629260}
+  missileLauncher: {fileID: 953629262}
   missileDelay: 5
 --- !u!1 &2036340268
 GameObject:
@@ -1541,8 +1590,8 @@ SceneRoots:
   - {fileID: 1008683590}
   - {fileID: 27994463}
   - {fileID: 1432389002}
-  - {fileID: 207510258}
   - {fileID: 492505932}
+  - {fileID: 207510258}
+  - {fileID: 953629261}
   - {fileID: 2036340269}
   - {fileID: 905016901}
-  - {fileID: 953629261}

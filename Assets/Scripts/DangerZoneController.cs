@@ -5,6 +5,7 @@ using System.Collections;
 public class DangerZoneController : MonoBehaviour
 {
     [SerializeField] private FlightExamManager examManager;
+    [SerializeField] private MissileLauncher missileLauncher;
     [SerializeField] private float missileDelay = 5f;
 
     private Coroutine countdownCoroutine;
@@ -16,9 +17,7 @@ public class DangerZoneController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInside = true;
-
             examManager.EnterDangerZone();
-
             if (countdownCoroutine == null)
             {countdownCoroutine = StartCoroutine(StartCountdown());}
         }
@@ -30,7 +29,6 @@ public class DangerZoneController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInside = false;
-
             examManager.ExitDangerZone();
 
             if (countdownCoroutine != null)
@@ -47,7 +45,7 @@ public class DangerZoneController : MonoBehaviour
         yield return new WaitForSeconds(missileDelay);
 
         if (isPlayerInside)
-        {Debug.Log("MISSILE SHOULD SPAWN NOW");}
+        {missileLauncher.LaunchMissile();}
 
         countdownCoroutine = null;
     }
