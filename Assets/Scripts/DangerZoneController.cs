@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class DangerZoneController : MonoBehaviour
 {
     [SerializeField] private FlightExamManager examManager;
