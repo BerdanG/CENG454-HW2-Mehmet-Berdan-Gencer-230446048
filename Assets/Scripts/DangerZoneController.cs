@@ -1,20 +1,26 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class DangerZoneController : MonoBehaviour
 {
     [SerializeField] private FlightExamManager examManager;
     [SerializeField] private float missileDelay = 5f;
 
     private Coroutine countdownCoroutine;
+    private bool isPlayerInside = false;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            isPlayerInside = true;
+
             examManager.EnterDangerZone();
-            countdownCoroutine = StartCoroutine(StartCountdown());
+
+            if (countdownCoroutine == null)
+            {countdownCoroutine = StartCoroutine(StartCountdown());}
         }
     }
 
@@ -23,7 +29,10 @@ public class DangerZoneController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isPlayerInside = false;
+
             examManager.ExitDangerZone();
+
             if (countdownCoroutine != null)
             {
                 StopCoroutine(countdownCoroutine);
@@ -36,6 +45,10 @@ public class DangerZoneController : MonoBehaviour
     private IEnumerator StartCountdown()
     {
         yield return new WaitForSeconds(missileDelay);
-        Debug.Log("MISSILE SHOULD SPAWN NOW");
+
+        if (isPlayerInside)
+        {Debug.Log("MISSILE SHOULD SPAWN NOW");}
+
+        countdownCoroutine = null;
     }
 }
