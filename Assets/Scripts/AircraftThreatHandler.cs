@@ -6,6 +6,7 @@ public class AircraftThreatHandler : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private FlightExamManager examManager;
     [SerializeField] private float respawnDelay = 2f;
+    [SerializeField] private AudioSource hitAudio;
 
     private bool isDead = false;
     private Rigidbody rb;
@@ -30,9 +31,11 @@ public class AircraftThreatHandler : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-
         Debug.Log("PLAYER HIT - FAIL");
-
+        
+        if (hitAudio != null)
+        {hitAudio.Play();}
+        
         examManager.OnPlayerHit();
 
         rb.linearVelocity = Vector3.zero;
