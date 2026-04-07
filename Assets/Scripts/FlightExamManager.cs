@@ -7,6 +7,7 @@ public class FlightExamManager : MonoBehaviour
     [SerializeField] private TMP_Text statusText;
 
     private bool isInDangerZone = false;
+    private bool missionFailed = false;
 
 
     public void EnterDangerZone()
@@ -20,5 +21,12 @@ public class FlightExamManager : MonoBehaviour
     {
         isInDangerZone = false;
         statusText.text = "";
+    }
+
+
+    public void OnPlayerHit()
+    {
+        missionFailed = true;
+        statusText.text = "MISSION FAILED!";
     }
 }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MissileHoming : MonoBehaviour
 {
-    [SerializeField] private float speed = 20f;
-    [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float speed = 60f;
+    [SerializeField] private float rotationSpeed = 10f;
 
     private Transform target;
 
@@ -33,11 +33,9 @@ public class MissileHoming : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    if (other.CompareTag("Player"))
-    {
-        Debug.Log("PLAYER HIT!");
-
+        if (other.CompareTag("Player"))
+        {
         Destroy(gameObject);
+        }
     }
-}
 }
